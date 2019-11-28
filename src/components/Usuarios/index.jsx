@@ -1,11 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as usuariosActions from '../../actions/usuariosActions.js'
-
+import Spinner from '../general/Spinner.js';
+import Fatal from '../general/Fatal.jsx'
 
 class Usuarios extends Component {
    componentDidMount() {  
     this.props.traerTodos();
+  }
+
+  ponerContenido = () => {
+    if(this.props.cargando){
+      return  <Spinner />
+    }
+
+    if(this.props.error) {
+      return <Fatal mensaje={this.props.error} />;
+    }
+
+
+    return (
+      <table className="tabla">
+      <thead>
+        <tr>
+          <th>NOMBRE</th>
+          <th>CORREO</th>
+          <th>ENLACE</th>
+        </tr>
+      </thead>
+      <tbody>
+        { this.ponerFilas() }
+      </tbody>
+  </table>
+    )
   }
 
    ponerFilas = () => (
@@ -21,18 +48,9 @@ class Usuarios extends Component {
     render() {
         return (
           <div>
-          <table className="tabla">
-              <thead>
-                <tr>
-                  <th>NOMBRE</th>
-                  <th>CORREO</th>
-                  <th>ENLACE</th>
-                </tr>
-              </thead>
-              <tbody>
-                { this.ponerFilas() }
-              </tbody>
-          </table>
+
+            {this.ponerContenido()}
+
           </div>
         );
     }
