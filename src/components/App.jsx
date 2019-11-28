@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Menu from './menu.jsx';
 import Usuarios from './Usuarios';
+import Publicaciones from '../components/Publicaciones';
 
 
 const Tareas = () => <div>tareas</div>
@@ -14,7 +15,8 @@ const App = () => (
 <Menu />
     <div  className="margen">
         <Route exact path='/' component={ Usuarios }/> 
-        <Route exact path='/tareas' component={ Tareas }/> 
+        <Route exact path='/tareas' component={Tareas} />
+        <Route exact path='/publicaciones/:key' component={ Publicaciones }/> 
     </div>
 </BrowserRouter>
 
