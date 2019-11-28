@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as usuariosActions from '../../actions/usuariosActions.js'
 import Spinner from '../general/Spinner.js';
 import Fatal from '../general/Fatal.jsx'
+import Tabla from './Tabla.jsx';
 
 class Usuarios extends Component {
    componentDidMount() {  
@@ -17,40 +18,14 @@ class Usuarios extends Component {
     if(this.props.error) {
       return <Fatal mensaje={this.props.error} />;
     }
-
-
-    return (
-      <table className="tabla">
-      <thead>
-        <tr>
-          <th>NOMBRE</th>
-          <th>CORREO</th>
-          <th>ENLACE</th>
-        </tr>
-      </thead>
-      <tbody>
-        { this.ponerFilas() }
-      </tbody>
-  </table>
-    )
-  }
-
-   ponerFilas = () => (
-      this.props.usuarios.map((usuario) => (
-        <tr key={usuario.id}>
-          <td>{usuario.name}</td>
-          <td>{usuario.email}</td>
-          <td>{usuario.website}</td>
-        </tr>
-      ))
-   )
+    return <Tabla />
+  };
    
     render() {
         return (
           <div>
-
+            <h1>Usuarios</h1>
             {this.ponerContenido()}
-
           </div>
         );
     }
@@ -58,5 +33,4 @@ class Usuarios extends Component {
 const mapStateToProps = (reducers) => {
   return reducers.usuariosReducer;
 };
-
 export default connect(mapStateToProps, usuariosActions)(Usuarios);
