@@ -12,7 +12,7 @@ export const traerTodas = () => async (dispatch) => {
      
         const tareas = {};
         respuesta.data.map((tar) => (
-            tareas[tar.userID] = {
+            tareas[tar.userId] = {
                 ...tareas[tar.usuerId],
                 [tar.id]: {
                     ...tar

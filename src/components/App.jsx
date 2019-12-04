@@ -4,7 +4,7 @@ import Menu from './menu.jsx';
 import Usuarios from './Usuarios';
 import Publicaciones from '../components/Publicaciones';
 import Tareas from '../components/Tareas/index.jsx'
-
+import TareasGuardar from '../components/Tareas/Guardar.jsx';
 
 
 const App = () => (
@@ -15,6 +15,7 @@ const App = () => (
         <Route exact path='/' component={ Usuarios }/> 
         <Route exact path='/tareas' component={Tareas} />
         <Route exact path='/publicaciones/:key' component={ Publicaciones }/> 
+        <Route exact path='/tareas/guardar' component={ TareasGuardar } />
     </div>
 </BrowserRouter>
 
