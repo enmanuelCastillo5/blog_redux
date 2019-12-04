@@ -3,9 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Menu from './menu.jsx';
 import Usuarios from './Usuarios';
 import Publicaciones from '../components/Publicaciones';
-
-
-const Tareas = () => <div>tareas</div>
+import Tareas from '../components/Tareas/index.jsx'
 
 
 
