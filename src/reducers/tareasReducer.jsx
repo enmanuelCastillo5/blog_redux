@@ -29,11 +29,14 @@ export default (state = INITIAL_STATE, action) => {
         case 'cambio_usuario_id':
             return { ...state, usuario_id: action.payload, cargando: false}    
             
-            case 'cambio_titulo':
-                    return { ...state, titulo: action.payload, cargando: false}    
+        case 'cambio_titulo':
+            return { ...state, titulo: action.payload, cargando: false}    
                 
 
+        case 'agregada':
+            return {...state, tareas: {}, cargando: false, error: ''}
 
+            
             default: return state;   
         }
  }
