@@ -6,7 +6,8 @@ import {
     CAMBIO_USUARIO_ID,
     CAMBIO_TITULO,
     GUARDAR,
-    ACTUALIZAR } from '../types/tareasTypes';
+    ACTUALIZAR,
+    LIMPIAR } from '../types/tareasTypes';
 
 
 export const traerTodas = () => async (dispatch) => {
@@ -64,7 +65,6 @@ export const agregar = (nueva_tarea) =>  async (dispatch) => {
     }) 
     try {
         const respuesta = await axios.post('https://jsonplaceholder.typicode.com/todos', nueva_tarea);
-        console.log(respuesta.data)
         dispatch({
             type: GUARDAR
         })
@@ -89,7 +89,6 @@ export const editar  = (tarea_editada) => async (dispatch) => {
     }) 
     try {
         const respuesta = await axios.put(`https://jsonplaceholder.typicode.com/todos/${tarea_editada.id}`, tarea_editada);
-        console.log(respuesta.data)
         dispatch({
             type: GUARDAR
         })
@@ -131,3 +130,34 @@ export const cambioCheck = (usu_id, tar_id) => (dispatch, getState) => {
         });
 
     };
+
+
+    export const eliminar = (tar_id) => async (dispatch) => {
+        dispatch({
+            type: CARGANDO,
+            });
+
+            try {
+
+                const respuesta =  await axios.delete(`https://jsonplaceholder.typicode.com/todos/${tar_id}`)
+                dispatch({
+                    type: TRAER_TODAS,
+                    payload: {}
+                })
+
+            } catch (error) {
+
+                console.log(error.message)
+                dispatch({
+                    type: ERROR,
+                    payload: 'servicio no disponible'
+                })
+
+            }
+    }
+
+    export const limpiarForma = () => (dispatch) => {
+         dispatch({
+             type: LIMPIAR
+         })
+    }
