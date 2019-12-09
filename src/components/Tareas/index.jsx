@@ -61,7 +61,7 @@ class Tareas extends Component {
                 onChange={() => cambioCheck(usu_id, tar_id) }
                 />
                 {
-                    por_usuario[tar_id].titleExample
+                    por_usuario[tar_id].title
                 }
                 <button className='btn btn-outline-info mr-2 ml-2'>
                    <Link to= {`/tareas/guardar/${usu_id}/${tar_id}`}>
