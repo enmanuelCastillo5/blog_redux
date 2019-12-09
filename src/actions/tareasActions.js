@@ -17,7 +17,7 @@ export const traerTodas = () => async (dispatch) => {
 
      try {
         const respuesta = await axios.get('https://jsonplaceholder.typicode.com/todos')
-     
+        console.log(respuesta.data)
         const tareas = {};
         respuesta.data.map((tar) => (
             tareas[tar.userId] = {

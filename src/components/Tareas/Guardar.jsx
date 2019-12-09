@@ -102,25 +102,29 @@ class Guardar extends Component {
             } 
                      <h1>Guardar Tarea</h1>
 
-                Usuario id:
-                <input
-                    type="number"
-                    value={this.props.usuario_id}
-                    onChange={this.cambioUsuarioId}
-                    />
-
-                <br/><br/>
-
-                Titulo:
-                <input 
-                    type="text"
-                    value={this.props.titulo}
-                    onChange={this.cambioTitulo}
-                    />
-
-                <br/><br/>
                 
-                <button 
+        
+                
+                <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                    <span className="input-group-text" id="basic-addon1">#</span>
+                </div>
+                <input type="number" className="form-control" placeholder="ID" aria-label="ID" aria-describedby="basic-addon1" value={this.props.usuario_id}
+                    onChange={this.cambioUsuarioId} />
+                </div>
+
+    
+
+                <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                    <span className="input-group-text" id="basic-addon1"></span>
+                </div>
+                <input type="text" className="form-control" placeholder="Agregar Tarea" aria-label="Username" aria-describedby="basic-addon1" value={this.props.titulo}
+                    onChange={this.cambioTitulo} />
+                </div>
+
+
+                <button className="btn btn-success"
                 onClick={ this.guardar }
                 disabled={ this.deshabilitar() }>
                  guardar

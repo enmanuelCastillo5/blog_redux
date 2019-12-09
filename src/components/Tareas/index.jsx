@@ -61,15 +61,15 @@ class Tareas extends Component {
                 onChange={() => cambioCheck(usu_id, tar_id) }
                 />
                 {
-                    por_usuario[tar_id].title
+                    por_usuario[tar_id].titleExample
                 }
-                <button className='m-left'>
+                <button className='btn btn-outline-info mr-2 ml-2'>
                    <Link to= {`/tareas/guardar/${usu_id}/${tar_id}`}>
-                        Editar 
+                       EDITAR 
                     </Link>
                     </button>
 
-                <button className='m-left' onClick={ () => eliminar(tar_id)}>Eliminar</button>
+                <button className='btn btn-outline-danger' onClick={ () => eliminar(tar_id)}>ELIMINAR</button>
                 </div>
             ));
     }
@@ -79,7 +79,7 @@ class Tareas extends Component {
 render() { 
     return (
         <div>
-            <button>
+            <button className='btn btn-link'>
                 <Link to='/tareas/guardar'>
                  AGREGAR
                 </Link>

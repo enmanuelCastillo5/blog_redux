@@ -128,8 +128,7 @@ class Publicaciones extends Component {
 
     }
 
-    render(){
-        console.log(this.props)
+    render() {
         return (
             <div>
                 { this.ponerUsuario() }

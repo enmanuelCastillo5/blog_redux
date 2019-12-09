@@ -22,13 +22,13 @@ const Tabla = (props) => {
 
 
     return (
-    <table className="tabla">
-        <thead>
+    <table className="table table-striped">
+        <thead className="thead-light">
             <tr>
-            <th>NOMBRE</th>
-            <th>CORREO</th>
-            <th>ENLACE</th>
-            <th>CASILLA</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">CORREO</th>
+            <th scope="col">ENLACE</th>
+            <th scope="col">CASILLA</th>
             </tr>
         </thead>
         <tbody>
